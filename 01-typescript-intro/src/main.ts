@@ -19,8 +19,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-
-  Hola Mundo
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
