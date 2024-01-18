@@ -1,6 +1,6 @@
-import { Product } from '../../../../cursoAngular/landing-page-angular/src/app/products/products.mock';
 
-interface Product {
+
+export interface Product {
     description: string,
     price: number
 }
@@ -22,7 +22,7 @@ interface taxCalculationOptions{
 
 //function taxCalculation ( options: taxCalculationOptions ): [ number, number ] {
 //function taxCalculation ({ tax, products }: taxCalculationOptions ): [ number, number ] {
-function taxCalculation (options: taxCalculationOptions ): [ number, number ] {
+export function taxCalculation (options: taxCalculationOptions ): [ number, number ] {
 
 const { tax, products } = options;
 
@@ -44,14 +44,11 @@ const result = taxCalculation( {
     tax: tax
 });
 
-console.log("Total:", result[0]);
-console.log("Tax:", result[1]);
-
 
 const [ total, taxTotal ] = taxCalculation( {
     products: shoppingCart,
     tax: tax
 });
 
-
-export {};
+console.log("Total:", total);
+console.log("Tax:", taxTotal);
