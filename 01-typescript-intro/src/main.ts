@@ -8,7 +8,8 @@ import { setupCounter } from './counter.ts'
 // import './topics/04-homework.ts'
 // import './topics/05-basic-destructuring.ts'
 // import './topics/06-function-destructuring.ts'
-import './topics/07-imports-export.ts'
+// import './topics/07-imports-export.ts'
+import './topics/08-classes.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
