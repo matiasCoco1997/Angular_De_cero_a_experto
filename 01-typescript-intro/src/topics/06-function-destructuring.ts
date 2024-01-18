@@ -1,3 +1,4 @@
+import { Product } from '../../../../cursoAngular/landing-page-angular/src/app/products/products.mock';
 
 interface Product {
     description: string,
@@ -19,22 +20,24 @@ interface taxCalculationOptions{
     products: Product[];
 }
 
-function taxCalculation ( options: taxCalculationOptions ): number[]{
+//function taxCalculation ( options: taxCalculationOptions ): [ number, number ] {
+//function taxCalculation ({ tax, products }: taxCalculationOptions ): [ number, number ] {
+function taxCalculation (options: taxCalculationOptions ): [ number, number ] {
+
+const { tax, products } = options;
 
     let total = 0;
 
-    options.products.forEach( product => {
-        total += product.price;
+    products.forEach( ({ price }) => {
+        total += price;
     })
 
-    return [total, total*options.tax]
+    return [total, total * tax];
 }
 
 
 const shoppingCart = [phone, tablet];
 const tax = 0.15;
-
-
 
 const result = taxCalculation( {
     products: shoppingCart,
@@ -45,7 +48,10 @@ console.log("Total:", result[0]);
 console.log("Tax:", result[1]);
 
 
-
+const [ total, taxTotal ] = taxCalculation( {
+    products: shoppingCart,
+    tax: tax
+});
 
 
 export {};
