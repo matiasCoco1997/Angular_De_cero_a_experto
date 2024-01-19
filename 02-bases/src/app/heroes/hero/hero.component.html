@@ -1,5 +1,5 @@
 
-<h1>Spiderman</h1>
+<h1>Heroes</h1>
 
 <dl>
   <td>Nombre:</td>
@@ -17,8 +17,10 @@
 </dl>
 
 
-<button class="btn btn-primary mx-2" (click)="changeHero()"> Cambiar Nombre </button>
+<button *ngIf=" name !== 'Spiderman' "  class="btn btn-primary mx-2" (click)="changeHero()"> Cambiar Nombre </button>
 
-<button class="btn btn-primary" (click)="changeAge()"> Cambiar Edad </button>
+<button *ngIf=" age !== 26 " class="btn btn-primary mx-2" (click)="changeAge()"> Cambiar Edad </button>
+
+<button class="btn btn-primary" (click)="resetForm()"> Reset Form </button>
 
 
