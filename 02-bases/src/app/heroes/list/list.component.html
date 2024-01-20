@@ -4,8 +4,14 @@
   <li *ngFor="let name of heroNames" class="list-group-item"> {{ name }} </li>
 </ul>
 
-<h3>Héroe borrado: <small class="text-danger"> XXXXXXX </small> </h3>
 
-<h3>No se han borrado héroes.</h3>
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Héroe borrado: <small class="text-danger"> {{ deletedHero }} </small> </h3>
+</div>
 
-<button class="btn btn-outline-danger"> Borrar último héroe </button>
+<ng-template #nothingWasDeleted>
+  <h3>No se han borrado héroes.</h3>
+</ng-template>
+
+
+<button *ngIf="heroNames.length > 0" class="btn btn-outline-danger" (click)="removeLastHero()"> Borrar último héroe </button>
