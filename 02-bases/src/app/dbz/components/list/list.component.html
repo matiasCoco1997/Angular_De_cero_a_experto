@@ -2,7 +2,15 @@
 
 <ul class="list-group">
 
-  <li *ngFor="let character of characterList" class="list-group-item">
+  <li *ngFor="let character of characterList;
+  let i = index;
+  let isFirst = first;
+  let isLast = last;
+  let isEven = even;
+  let isOdd = odd"
+  class="list-group-item">
+
+    <span class="text-primary">{{ i+1 }}. </span>
 
     <strong>Name: </strong>
 
@@ -12,6 +20,8 @@
 
     <span>{{ character.power }}</span>
 
-    </li>
+     <!--class="list-group-item list-group-item-success">-->
+
+  </li>
 
 </ul>
