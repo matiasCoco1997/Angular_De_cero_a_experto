@@ -26,4 +26,9 @@ export class MainPageComponent  {
     }
   ];
 
+
+  addNewCharacter( character:Character ): void {
+    this.characters.push(character);
+  }
+
 }
