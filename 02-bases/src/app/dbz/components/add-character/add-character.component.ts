@@ -18,10 +18,15 @@ export class AddCharacterComponent {
   };
 
   emitCharacter():void {
+
+    // debugger; el debugger hace que corte la ejecucion en esa linea para ir debuggeando el codigo.
+
     console.log(this.character);
 
     if( this.character.name.length === 0 || this.character.power === 0 ) return;
 
     this.onNewCharacter.emit(this.character);
+
+    this.character = { name: '', power: 0};
   }
 }
