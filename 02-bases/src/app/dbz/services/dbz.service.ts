@@ -29,7 +29,7 @@ export class DbzService {
   ];
 
   addNewCharacter( character:Character ): void {
-    const newCharacter: Character = { ...character, id: uuid() }
+    const newCharacter: Character = { id: uuid(), ...character  }
     this.characters.push(newCharacter);
   }
 
