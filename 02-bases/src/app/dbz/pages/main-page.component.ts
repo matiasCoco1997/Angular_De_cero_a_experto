@@ -20,9 +20,7 @@ export class MainPageComponent  {
   }
 
   addNewCharacter(character: Character): void{
-
     this.dbzService.addNewCharacter(character);
-
   }
 
 }
