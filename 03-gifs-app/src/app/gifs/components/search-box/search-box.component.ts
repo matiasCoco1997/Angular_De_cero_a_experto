@@ -9,12 +9,10 @@ import { GifsService } from '../../services/gifs.service';
 
 export class SearchBoxComponent {
 
-  @ViewChild("txtTagInput", )
+  @ViewChild("txtTagInput")
   public tagInput!: ElementRef<HTMLInputElement>;
 
-  constructor( private gifsService: GifsService){
-
-  }
+  constructor( private gifsService: GifsService ){ }
 
   searchTag():void{
     const newTag = this.tagInput.nativeElement.value;

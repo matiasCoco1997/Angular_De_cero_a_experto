@@ -43,10 +43,13 @@ export class GifsService {
 
     tag = tag.toLowerCase();
 
+    console.log(this._tagsHistory.includes(tag));
+
     if( this._tagsHistory.includes(tag) ){
       this._tagsHistory = this._tagsHistory.filter( (oldTag) => oldTag !== tag ); //borro el tag existente
     }
 
-    this._tagsHistory = this.tagsHistory.splice(0, 10); //lo reducimos a las ultimas 10 busquedas
+    this._tagsHistory = this.tagsHistory.splice(0, 15); //lo reducimos a las ultimas 15 busquedas
+
   }
 }
