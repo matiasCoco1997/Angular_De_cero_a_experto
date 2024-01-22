@@ -11,11 +11,6 @@ export class CardListComponent {
   @Input()
   public gifs: Gif[] = [];
 
-  constructor(private gifsService: GifsService){
-    this.searchTag();
-  }
+  constructor(private gifsService: GifsService){}
 
-  private searchTag():void{
-    this.gifsService.showLastSearchGifs();
-  }
 }
