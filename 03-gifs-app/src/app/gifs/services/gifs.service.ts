@@ -51,5 +51,11 @@ export class GifsService {
 
     this._tagsHistory = this.tagsHistory.splice(0, 10); //lo reducimos a las ultimas 10 busquedas el historial
 
+    this.saveLocalStorage();
   }
+
+  private saveLocalStorage():void{
+    localStorage.setItem( 'history', JSON.stringify(this._tagsHistory) );
+  }
+
 }
