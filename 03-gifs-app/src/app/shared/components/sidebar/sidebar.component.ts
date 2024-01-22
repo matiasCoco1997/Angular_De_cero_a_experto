@@ -15,10 +15,6 @@ export class SidebarComponent {
   }
 
   searchTag(tag:string):void{
-
-    const newTag = tag;
-
-    this.gifsService.searchTag(newTag);
-
+    this.gifsService.searchTag(tag);
   }
 }
