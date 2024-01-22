@@ -28,15 +28,13 @@ export class GifsService {
 
     const params = new HttpParams()
     .set('api_key', this.apiKey )
-    .set('limit', '10' )
+    .set('limit', '5' )
     .set('q', tag );
 
     this.http.get<SearchResponse>(`${this.serviceUrl}/search`, { params: params })
     .subscribe( resp => {
       this.gifList = resp.data;
     });
-
-
 
   }
 
@@ -51,7 +49,7 @@ export class GifsService {
 
     this._tagsHistory.unshift(tag);
 
-    this._tagsHistory = this.tagsHistory.splice(0, 15); //lo reducimos a las ultimas 15 busquedas
+    this._tagsHistory = this.tagsHistory.splice(0, 10); //lo reducimos a las ultimas 10 busquedas el historial
 
   }
 }
