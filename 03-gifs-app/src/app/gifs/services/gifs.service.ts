@@ -75,8 +75,8 @@ export class GifsService {
     localStorage.setItem( 'history', JSON.stringify(this._tagsHistory) );
   }
 
-  showLastSearchGifs():string{
-    return this._tagsHistory[0];
+  showLastSearchGifs():void{
+    this.searchTag(this._tagsHistory[0]);
   }
 
 }

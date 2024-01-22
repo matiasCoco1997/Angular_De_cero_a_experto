@@ -12,11 +12,10 @@ export class CardListComponent {
   public gifs: Gif[] = [];
 
   constructor(private gifsService: GifsService){
-
+    this.searchTag();
   }
 
-  searchTag():void{
-    console.log(this.gifsService.showLastSearchGifs());
-    this.gifsService.searchTag(this.gifsService.showLastSearchGifs());
+  private searchTag():void{
+    this.gifsService.showLastSearchGifs();
   }
 }
