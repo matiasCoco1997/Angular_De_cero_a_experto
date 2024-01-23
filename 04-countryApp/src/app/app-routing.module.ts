@@ -22,9 +22,16 @@ const routes: Routes = [
   },
 
   {
+    path: 'countries',
+    component: ContactPageComponent
+  },
+
+  {
     path: '**',
     redirectTo: ''
   }
+
+
 
 ];
 
