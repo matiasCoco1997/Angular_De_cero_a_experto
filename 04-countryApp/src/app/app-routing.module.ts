@@ -23,7 +23,12 @@ const routes: Routes = [
 
   {
     path: 'countries',
-    component: ContactPageComponent
+    loadChildren: () => import('./countries/countries.module').then( m => m.CountriesModule )
+    /*
+      1) Adentro del import va la ruta estatica donde esta el archivo que se va a importar
+      2) m = modulo
+      3) m.CountriesModule es lo que se esta importando
+    */
   },
 
   {
