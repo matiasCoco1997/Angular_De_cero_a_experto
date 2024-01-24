@@ -11,13 +11,56 @@ export class CountriesService {
   constructor(private http: HttpClient) { }
 
   searchByCapital( term: string) : Observable <Country[]>{
+    //https://restcountries.com/v3.1/capital/{capital}
     const searchCapitalUrl: string = `${ this.apiUrl }/capital/${ term }`;
-    return this.http.get<Country[]>( searchCapitalUrl )
+
+    const result = this.http.get<Country[]>( searchCapitalUrl )
+                  .pipe(
+                    catchError( () => {
+                      return of([]);
+                    })
+                    //"of" es un observable, en el caso que haya un error retornaria un array vacio del tipo observable.
+                  );
+     return result;
+  }
+
+  searchByCountry( term: string) : Observable <Country[]>{
+    //https://restcountries.com/v3.1/name/{name}
+
+    const searchCountryUrl: string = `${ this.apiUrl }/name/${ term }`;
+
+    const result = this.http.get<Country[]>(searchCountryUrl)
+    .pipe(
+      catchError(() => {
+        return of([]);
+      })
+    )
+
+    return result;
+  }
+
+  searchByRegion( term: string) : Observable <Country[]>{
+    //https://restcountries.com/v3.1/region/{region}
+
+    const typeOfSearch: string = `/region/${ term }`;
+
+    return this.search(typeOfSearch, term);
+  }
+
+
+  private search(type:string, term:string):Observable <Country[]>{
+
+    const searchRegionUrl: string = `${ this.apiUrl, type, term}`;
+
+    const result = this.http.get<Country[]>(searchRegionUrl)
     .pipe(
       catchError( () => {
         return of([]);
       })
-      //"of" es un observable, en el caso que haya un error retornaria un array vacio del tipo observable.
-     );
+    );
+
+    return result;
   }
+
+
 }
