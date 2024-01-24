@@ -12,37 +12,22 @@ export class CountriesService {
 
   searchByCapital( term: string) : Observable <Country[]>{
     //https://restcountries.com/v3.1/capital/{capital}
-    const searchCapitalUrl: string = `${ this.apiUrl }/capital/${ term }`;
+    const typeOfSearch: string = `/capital/`;
 
-    const result = this.http.get<Country[]>( searchCapitalUrl )
-                  .pipe(
-                    catchError( () => {
-                      return of([]);
-                    })
-                    //"of" es un observable, en el caso que haya un error retornaria un array vacio del tipo observable.
-                  );
-     return result;
+    return this.search(typeOfSearch, term);
   }
 
   searchByCountry( term: string) : Observable <Country[]>{
     //https://restcountries.com/v3.1/name/{name}
+    const typeOfSearch: string = `/name/`;
 
-    const searchCountryUrl: string = `${ this.apiUrl }/name/${ term }`;
-
-    const result = this.http.get<Country[]>(searchCountryUrl)
-    .pipe(
-      catchError(() => {
-        return of([]);
-      })
-    )
-
-    return result;
+    return this.search(typeOfSearch, term);
   }
 
   searchByRegion( term: string) : Observable <Country[]>{
     //https://restcountries.com/v3.1/region/{region}
 
-    const typeOfSearch: string = `/region/${ term }`;
+    const typeOfSearch: string = `/region/`;
 
     return this.search(typeOfSearch, term);
   }
