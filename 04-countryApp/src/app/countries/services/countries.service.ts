@@ -10,6 +10,15 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
+
+  searchCuntryByAlphaCode( code: string) : Observable <Country[]>{
+    //https://restcountries.com/v3.1/alpha/{code}
+
+    const typeOfSearch: string = `/alpha/`;
+
+    return this.search(typeOfSearch, code);
+  }
+
   searchByCapital( term: string) : Observable <Country[]>{
     //https://restcountries.com/v3.1/capital/{capital}
     const typeOfSearch: string = `/capital/`;
