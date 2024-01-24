@@ -35,7 +35,7 @@ export class CountriesService {
 
   private search(type:string, term:string):Observable <Country[]>{
 
-    const searchRegionUrl: string = `${ this.apiUrl, type, term}`;
+    const searchRegionUrl: string = `${ this.apiUrl }${type}${term}`;
 
     const result = this.http.get<Country[]>(searchRegionUrl)
     .pipe(
