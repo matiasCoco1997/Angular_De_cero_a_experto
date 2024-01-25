@@ -10,6 +10,8 @@ import { Country } from '../../interfaces/country.interface';
   styles: ``
 })
 export class CountryPageComponent implements OnInit{
+//img{width:100px}
+  public country?:Country;
 
   constructor( private activatedRoute: ActivatedRoute,
                private countriesService:CountriesService,
@@ -25,7 +27,8 @@ export class CountryPageComponent implements OnInit{
       if( !country ){
         return this.router.navigateByUrl("")
       }
-       return country;
+
+      return this.country = country;
     } );
   }
 
