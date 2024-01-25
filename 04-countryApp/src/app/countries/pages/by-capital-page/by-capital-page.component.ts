@@ -10,7 +10,7 @@ export class ByCapitalPageComponent {
 
   public countries: Country[] = [];
 
-  public isloading: boolean = false;
+  public isLoading: boolean = false;
 
   constructor(private countriesService: CountriesService){
 
@@ -18,12 +18,12 @@ export class ByCapitalPageComponent {
 
   searchByCapital( term: string):void {
 
-    this.isloading = true;
+    this.isLoading = true;
 
     this.countriesService.searchByCapital(term)
     .subscribe( countries => {
       this.countries = countries;
-      this.isloading = false;
+      this.isLoading = false;
     });
   }
 }

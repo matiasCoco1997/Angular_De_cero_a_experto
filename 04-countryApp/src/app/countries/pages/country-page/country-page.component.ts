@@ -10,7 +10,7 @@ import { Country } from '../../interfaces/country.interface';
   styles: ``
 })
 export class CountryPageComponent implements OnInit{
-//img{width:100px}
+
   public country?:Country;
 
   constructor( private activatedRoute: ActivatedRoute,

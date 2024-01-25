@@ -55,8 +55,7 @@ export class CountriesService {
     .pipe(
       catchError( () => {
         return of([]);
-      }),
-      delay(2000),
+      })
     );
 
     return result;
