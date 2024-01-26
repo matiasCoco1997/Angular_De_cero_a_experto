@@ -29,7 +29,7 @@ export class CountryPageComponent implements OnInit{
       }
 
       return this.country = country;
-    } );
+    });
   }
 
 }
