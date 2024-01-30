@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
+import { NgModule } from '@angular/core';
 
 
 @NgModule({
   exports: [
+    MenubarModule,
     MenuModule,
   ]
 })
