@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit{
 
   ngOnInit(): void {
     this.menuItems = [
+
       {
         label:"Pipes de Angular",
         icon: "pi pi-desktop",
@@ -20,17 +21,24 @@ export class MenuComponent implements OnInit{
           {
             label: "Textos y Fechas",
             icon: "pi pi-align-left",
+            routerLink: "",
+            routerLinkActiveOptions: "active"
           },
           {
             label: "Números",
             icon: "pi pi-dolar",
+            routerLink: "numbers",
+            routerLinkActiveOptions: "active"
           },
           {
             label: "No comunes",
             icon: "pi pi-globe",
+            routerLink: "uncommon",
+            routerLinkActiveOptions: "active"
           }
         ]
       },
+
       {
         label: "Pipes personalizados",
         icon: "pi pi-cog",
