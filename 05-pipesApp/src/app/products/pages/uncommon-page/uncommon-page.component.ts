@@ -49,7 +49,7 @@ export class UncommonPageComponent {
   //AsyncPipe
   public myObservableTimer: Observable<number> = interval(2000);
 
-  //en el caso de la promesa no es posible cancelarla, se ejecutará desde cualquier página
+  //En el caso de la promesa no es posible cancelarla, se ejecutará desde cualquier página
   public promiseValue: Promise<string> = new Promise( (resolve, reject ) => {
     setTimeout( () => {
       resolve("Tenemos data en la promesa.");
