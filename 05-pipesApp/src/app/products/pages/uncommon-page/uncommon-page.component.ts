@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, interval, tap } from 'rxjs';
 
 @Component({
   selector: 'app-uncommon-page',
@@ -44,4 +45,15 @@ export class UncommonPageComponent {
     address: "Buenos Aires, Argentina"
   }
 
+
+  //AsyncPipe
+  public myObservableTimer: Observable<number> = interval(2000);
+
+  //en el caso de la promesa no es posible cancelarla, se ejecutará desde cualquier página
+  public promiseValue: Promise<string> = new Promise( (resolve, reject ) => {
+    setTimeout( () => {
+      resolve("Tenemos data en la promesa.");
+      console.log("Tenemos data en la promesa.");
+    }, 3500)
+  })
 }
