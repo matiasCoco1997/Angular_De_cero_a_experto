@@ -7,6 +7,8 @@ import { Color, Hero } from '../../interfaces/hero.interface';
 })
 export class OrderComponent {
 
+  public optionSelected: string = "";
+
   public text: string = "nosotros";
 
   public isUpperCase: boolean = false;
@@ -36,7 +38,6 @@ export class OrderComponent {
       color: Color.red
     },
 
-
     {
       name: "Linterna verde",
       canFly: true,
@@ -50,4 +51,7 @@ export class OrderComponent {
     this.isUpperCase = !this.isUpperCase;
   }
 
+  sortType(value: string):void{
+    this.optionSelected = value;
+  }
 }
