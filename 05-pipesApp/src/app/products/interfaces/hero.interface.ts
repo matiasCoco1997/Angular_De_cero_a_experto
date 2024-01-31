@@ -1,7 +1,7 @@
 
 
 export enum Color{
-  red, black, blue, green
+  azul, negro, rojo, verde
 }
 
 

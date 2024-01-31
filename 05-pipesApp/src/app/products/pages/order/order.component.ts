@@ -7,7 +7,7 @@ import { Color, Hero } from '../../interfaces/hero.interface';
 })
 export class OrderComponent {
 
-  public optionSelected: string = "";
+  public orderBy?: keyof Hero | ""  = "";
 
   public text: string = "nosotros";
 
@@ -17,31 +17,31 @@ export class OrderComponent {
     {
       name: "Superman",
       canFly: true,
-      color: Color.blue
+      color: Color.azul
     },
 
     {
       name: "Batman",
       canFly: false,
-      color: Color.black
+      color: Color.negro
     },
 
     {
       name: "Daredevil",
       canFly: false,
-      color: Color.red
+      color: Color.rojo
     },
 
     {
       name: "Robin",
       canFly: false,
-      color: Color.red
+      color: Color.rojo
     },
 
     {
       name: "Linterna verde",
       canFly: true,
-      color: Color.green
+      color: Color.verde
     }
   ]
 
@@ -51,7 +51,7 @@ export class OrderComponent {
     this.isUpperCase = !this.isUpperCase;
   }
 
-  sortType(value: string):void{
-    this.optionSelected = value;
+  chageOrder(value: keyof Hero ):void{
+    this.orderBy = value;
   }
 }
