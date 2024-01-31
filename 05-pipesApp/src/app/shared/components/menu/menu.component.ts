@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit{
           },
           {
             label: "Números",
-            icon: "pi pi-dolar",
+            icon: "pi pi-dollar",
             routerLink: "numbers",
             routerLinkActiveOptions: "active"
           },
