@@ -37,5 +37,11 @@ export class UncommonPageComponent {
     this.clients.shift();
   }
 
-  //slicePipe
+  //keyValuePipe
+  public person = {
+    name: "Matías",
+    age: 26,
+    address: "Buenos Aires, Argentina"
+  }
+
 }
