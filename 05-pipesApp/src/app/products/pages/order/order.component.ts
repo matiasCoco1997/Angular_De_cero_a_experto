@@ -8,4 +8,10 @@ export class OrderComponent {
 
   public text: string = "nosotros";
 
+  public isUpperCase: boolean = false;
+
+  toggleUpperCase():void {
+    this.isUpperCase = !this.isUpperCase;
+  }
+
 }
