@@ -9,6 +9,7 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './components/card/card.component';
 
 
 
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
