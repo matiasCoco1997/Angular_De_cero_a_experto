@@ -1,0 +1,28 @@
+.return-btn {
+  background-color: rgb(219, 87, 87) !important;
+  color: white !important;
+}
+
+.return-btn:hover {
+  background-color: red !important;
+}
+
+.imgHero{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgHero img{
+  max-height: 500px;
+}
+
+.align-end{
+  text-align: end;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
