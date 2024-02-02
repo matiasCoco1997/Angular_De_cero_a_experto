@@ -10,17 +10,22 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
+import { HeroImagePipe } from './pipes/hero-image.pipe';
 
 
 
 @NgModule({
   declarations: [
+    //components and pages
     HeroPageComponent,
     LayoutPageComponent,
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
     CardComponent,
+
+    //pipes
+    HeroImagePipe,
   ],
   imports: [
     CommonModule,
