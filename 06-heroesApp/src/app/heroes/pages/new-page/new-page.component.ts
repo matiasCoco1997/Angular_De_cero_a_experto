@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap, tap } from 'rxjs';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -95,12 +95,23 @@ export class NewPageComponent implements OnInit{
       data: this.heroForm.value,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if( !result ) return;
+    dialogRef.afterClosed()
+    .pipe(
 
-      this._heroService.deleteHeroById(this.currentHero.id);
+      //Filter si la respuesta es verdadera retorna un true solo si es true, sino corta la ejecución.
+      filter( (result: boolean) =>  result ),
+
+      //En el caso de que el filter anterior sea verdadero ejecuta el delete.
+      switchMap( () => this._heroService.deleteHeroById( this.currentHero.id ) ),
+
+      /*En el caso de que se haya ejecutado el delete correctamente retorna un true,
+        en el caso de que sea false no ejecuta el subscribe.*/
+      filter( (wasDeleted:boolean) => wasDeleted )
+    )
+    .subscribe(() => {
+      //Esto solo se ejecuta si se cumple con todas las condiciones anteriores
       this.router.navigateByUrl("/heroes")
-    });
+    })
 
   }
 
