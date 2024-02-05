@@ -38,6 +38,20 @@ export class NewPageComponent {
 
     if( !this.heroForm.valid ) return;
 
+  if( this.currentHero.id ){
+    this._heroService.updateHero(this.currentHero).
+    subscribe( hero => {
+      //TODO: mostrar snackbar
+    });
+
+    return;
+  }
+
+  this._heroService.addHero (this.currentHero )
+  .subscribe( hero => {
+    //TODO: mostrar snackbar, y navegar a /heroes/edit/hero.id
+  });
+
     //this._heroService.updateHero( this.heroForm.value );
   }
 }

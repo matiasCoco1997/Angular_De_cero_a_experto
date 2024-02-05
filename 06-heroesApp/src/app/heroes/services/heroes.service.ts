@@ -28,7 +28,7 @@ export class HeroesService {
     return this.http.get<Hero[]>(`${ this.baseUrl }/heroes?q=${ query }&_limit=6`);
   }
 
-  addHer( hero:Hero ):Observable<Hero>{
+  addHero( hero:Hero ):Observable<Hero>{
     //El primer argumento es la ruta y el segundo el parametro el cual se agregará
     return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
   }
