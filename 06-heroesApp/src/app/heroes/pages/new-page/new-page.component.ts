@@ -4,7 +4,10 @@ import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 
 @Component({
@@ -33,7 +36,8 @@ export class NewPageComponent implements OnInit{
     private _heroService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog
   ){}
 
   ngOnInit(): void {
@@ -81,6 +85,25 @@ export class NewPageComponent implements OnInit{
       this.showSnackbar(`¡${hero.superhero} creado!`);
     });
   }
+
+  onDeleteHero():void{
+    if( !this.currentHero.id ){
+      throw Error("Hero id is required");
+    }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: this.heroForm.value,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if( !result ) return;
+
+      this._heroService.deleteHeroById(this.currentHero.id);
+      this.router.navigateByUrl("/heroes")
+    });
+
+  }
+
 
   showSnackbar( message:string ):void{
     this.snackbar.open(message, "cerrar", {

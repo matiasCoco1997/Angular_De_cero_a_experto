@@ -42,7 +42,6 @@ export class HeroesService {
   }
 
   deleteHeroById( id:string ):Observable<Boolean>{
-    //El primer argumento es la ruta y el segundo el parametro el cual se agregará
     return this.http.delete(`${this.baseUrl}/heroes/${ id }`)
     .pipe(
       catchError( error => of(false)),
