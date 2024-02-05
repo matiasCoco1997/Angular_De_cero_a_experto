@@ -35,7 +35,12 @@
 
     <span class="spacer"></span>
 
-    <button class="redHover" mat-icon-button>
+    <span>{{ user?.email }}</span>
+
+    <button
+    class="redHover"
+    mat-icon-button
+    (click)="onLogout()">
       <mat-icon>logout</mat-icon>
     </button>
 
