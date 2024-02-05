@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "user": "John Doe",
       "email": "john.due@gmail.com"
     }
   ],
@@ -13,7 +13,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Bruce Wayne",
       "first_appearance": "Detective Comics #27",
-      "characters": "Bruce Wayne"
+      "characters": "Bruce Wayne",
+      "alt_img": null
     },
     {
       "id": "dc-superman",
@@ -166,6 +167,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "AKrB-cO",
+      "superhero": "Goku",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Kakaroto",
+      "first_appearance": "Dragon Ball",
+      "characters": "Goku",
+      "alt_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_axbBesb0E_Uao5IdenAqZKsUPko2cXSJW1ByoudnfPmz9a6bpgHqVGTlD2OJsYKhfi8&usqp=CAU"
     }
   ]
 }
