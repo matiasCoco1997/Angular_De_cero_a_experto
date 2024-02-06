@@ -34,29 +34,22 @@ export class AuthService {
 
   checkAuthentication():Observable<boolean>{
 
-    if( !localStorage.getItem("token") ){
+    const token = localStorage.getItem("token");
+
+    if( !token ){
       return of(false);
     }
-
-    const token = localStorage.getItem("token");
 
     return this.http.get<User>(`${this.baseUrl}/users/1`)
     .pipe(
       tap( user => this.user = user ),
-      /*
-      La doble negación se encarga de verificar que en el caso de que no tenga valores
-      el usuario retorne en la primer negación "false" y la segunda se encargue de convertirlo
-      en "true"
-      undefined -> false -> true
-      */
       map( user => !!user),
       catchError( err => of(false))
     )
-
   }
 
   logout():void{
     this.user = undefined;
-    localStorage.removeItem("token");
+    localStorage.clear();
   }
 }
