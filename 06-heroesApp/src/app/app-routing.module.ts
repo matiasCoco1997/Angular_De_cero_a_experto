@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
 
+
+//Importamos las dos funciones que creamos anteriormente.
+import { canActivateGuard, canMatchGuard } from './auth/guards/auth.guard';
+
 const routes: Routes = [
   {
     path:"auth",
@@ -12,6 +16,8 @@ const routes: Routes = [
   {
     path:"heroes",
     loadChildren: () => import ("./heroes/heroes.module").then( module => module.HeroesModule),
+    canActivate: [canActivateGuard],
+    canMatch: [canMatchGuard],
   },
 
   {
