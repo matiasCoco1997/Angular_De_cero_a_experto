@@ -9,12 +9,12 @@ const routes: Routes = [
     path:"",
     children:[
       {
-        path:"basic",
+        path:"basics",
         component:BasicPageComponent
       },
 
       {
-        path:"dinamic",
+        path:"dynamics",
         component:DinamicPageComponent
       },
 
