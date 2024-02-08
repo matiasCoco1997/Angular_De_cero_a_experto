@@ -15,7 +15,7 @@
                            placeholder="Nombre del usuario"
                            formControlName="name">
 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('name')">
                         Debe de ser en formato de nombre y apellido
                     </span>
                 </div>
@@ -29,7 +29,7 @@
                            class="form-control"
                            placeholder="Email del usuario"
                            formControlName="email">
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('email')">
                         mensaje de error del email
                     </span>
                 </div>
@@ -43,7 +43,7 @@
                            class="form-control"
                            placeholder="Nombre código del usuario"
                            formControlName="username">
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('username')">
                          El username no puede ser Strider
                     </span>
                 </div>
@@ -58,7 +58,7 @@
                            placeholder="Password de su cuenta"
                            formControlName="password">
 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('password')">
                          La contraseña debe de ser mayor de 6 caracteres.
                     </span>
                 </div>
@@ -73,7 +73,7 @@
                            placeholder="Confirmar la contraseña"
                            formControlName="passwordConfirm">
 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('passwordConfirm')">
                          Las contraseñas deben de ser iguales
                     </span>
                 </div>
