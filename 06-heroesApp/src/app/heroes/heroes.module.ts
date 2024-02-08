@@ -28,7 +28,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 
     //pipes
     HeroImagePipe,
-      ConfirmDialogComponent,
+    ConfirmDialogComponent,
 
   ],
   imports: [
