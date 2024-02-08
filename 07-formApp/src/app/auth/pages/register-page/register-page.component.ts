@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Passenger } from '../../../../../../01-typescript-intro/src/topics/11-optional-chaining';
+import { cantBeStrider } from '../../../shared/validators/validators';
 
 @Component({
   templateUrl: './register-page.component.html'
@@ -11,7 +11,7 @@ export class RegisterPageComponent {
 
     name: ['', [ Validators.required ] ],
     email: ['', [ Validators.required, Validators.email ] ],
-    username: ['', [ Validators.required ] ],
+    username: ['', [ Validators.required , cantBeStrider ] ],
     password: ['', [ Validators.required, Validators.minLength(6) ] ],
     passwordConfirm: ['', [ Validators.required ] ],
 
