@@ -23,7 +23,7 @@
 
       <select formControlName="region" class="form-control">
         <option value="">--Seleccione País--</option>
-        <!-- <option *ngFor="let country of countries" [value]="country"> {{ country }}</option> -->
+        <option *ngFor="let country of countriesByRegion" [value]="country"> {{ country.name }}</option>
       </select>
 
     </div>
