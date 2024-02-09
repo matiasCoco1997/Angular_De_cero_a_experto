@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CountriesService } from '../../services/countries.service';
 import { Region, SmallCountry } from '../../interfaces/country.interfaces';
-import { switchMap, tap } from 'rxjs';
+import { filter, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'page-selector-page',
@@ -14,11 +14,9 @@ export class SelectorPageComponent implements OnInit{
   public countriesByRegion: SmallCountry[] = [];
 
   public myForm: FormGroup = this.fb.group({
-
-    region:  ['', [ Validators.required ]],
+    region : ['', [ Validators.required ]],
     country: ['', [ Validators.required ]],
-    borders: ['', [ Validators.required ]],
-
+    border : ['', [ Validators.required ]],
   })
 
   constructor(
@@ -28,6 +26,7 @@ export class SelectorPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.onRegionChanged();
+    this.onCountryChanged();
   }
 
   get regions():Region[] {
@@ -44,6 +43,18 @@ export class SelectorPageComponent implements OnInit{
     .subscribe ( countries => {
       this.countriesByRegion = countries;
     });
+  }
 
+  onCountryChanged():void{
+    this.myForm.get("country")!.valueChanges
+    .pipe(
+      tap( () => this.myForm.get('border')!.setValue("") ),
+      filter( (value:string) => value.length > 0 ),
+      tap(alphaCode => console.log(JSON.stringify(alphaCode))),
+      switchMap( (alphaCode) =>  this._countriesService.getCountriesByAlphaCode(alphaCode) )
+    )
+    .subscribe ( country => {
+      console.log({borders: country.borders})
+    });
   }
 }
