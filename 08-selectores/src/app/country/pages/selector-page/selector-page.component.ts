@@ -12,7 +12,7 @@ export class SelectorPageComponent implements OnInit{
 
 
   public countriesByRegion: SmallCountry[] = [];
-  public borders: string[] = [];
+  public borders: SmallCountry[] = [];
 
   public myForm: FormGroup = this.fb.group({
     region : ['', [ Validators.required ]],
@@ -52,11 +52,11 @@ export class SelectorPageComponent implements OnInit{
     .pipe(
       tap( () => this.myForm.get('border')!.setValue("") ),
       filter( (value:string) => value.length > 0 ),
-      switchMap( (alphaCode) =>  this._countriesService.getCountriesByAlphaCode(alphaCode) )
+      switchMap( (alphaCode) =>  this._countriesService.getCountriesByAlphaCode(alphaCode) ),
+      switchMap( country => this._countriesService.getCountriesBordersByCodes(country.borders) )
     )
-    .subscribe ( country => {
-      console.log({borders: country.borders});
-      this.borders = country.borders;
+    .subscribe ( countries => {
+      this.borders = countries;
     });
   }
 }
