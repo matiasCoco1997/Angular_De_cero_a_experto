@@ -36,7 +36,6 @@ export class CountriesService {
         cca3: country.cca3,
         borders: country.borders ?? [] //En el caso que retorne algo considerado nulo ("", undefined, etc), retorna el array vacio
       }))),
-      tap( response => console.log(response))
     );
   }
 }
