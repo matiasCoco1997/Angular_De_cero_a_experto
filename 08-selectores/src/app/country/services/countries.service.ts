@@ -40,9 +40,6 @@ export class CountriesService {
   }
 
   getCountriesByAlphaCode( alphaCode: string ): Observable<SmallCountry> {
-
-    console.log({alphaCode});
-
     const url: string =`${this.baseUrl}/alpha/${alphaCode}?fields=cca3,name,borders`;
 
     return this.http.get<Country>(url)
